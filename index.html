@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEANUAL X SPOOFER</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap');
+        
+        :root {
+            --primary: #00a8ff;
+            --primary-dark: #0097e6;
+            --secondary: #1e272e;
+            --accent: #0fbcf9;
+            --text: #f5f6fa;
+            --bg: #0a0e12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(0, 168, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(15, 188, 249, 0.1) 0%, transparent 50%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px var(--primary);
+            }
+            to {
+                text-shadow: 0 0 20px var(--accent), 0 0 10px var(--primary);
+            }
+        }
+        
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(0, 168, 255, 0.7));
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+        }
+        
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .link-card {
+            background: linear-gradient(145deg, rgba(30, 39, 46, 0.8), rgba(10, 14, 18, 0.9));
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 168, 255, 0.3);
+            border-color: var(--accent);
+        }
+        
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent,
+                transparent,
+                transparent,
+                var(--primary),
+                transparent,
+                transparent,
+                transparent
+            );
+            transform: rotate(30deg);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .link-card:hover::before {
+            opacity: 0.3;
+            animation: shine 1.5s;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            20% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        .link-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .link-title i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .link-description {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: #a4b0be;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 168, 255, 0.3);
+            background: linear-gradient(to right, var(--accent), var(--primary));
+        }
+        
+        .video-section {
+            margin-top: 50px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            background: var(--secondary);
+        }
+        
+        .video-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), transparent);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #a4b0be;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 168, 255, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Particle background effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <img src="https://img5.pic.in.th/file/secure-sv1/aef6d17414def6ee2b1b2e0e7dc5e59c_1.webp" alt="Logo" class="logo">
+            <h1>PROGARM download</h1>
+            <p class="subtitle">โหลดสั่งงงก็เปิดเก็ตไอควาย</p>
+        </header>
+        
+        <div class="link-grid">
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-bunny"></i> บันนี่ AFK</h3>
+                <p class="link-description">เครื่องมือช่วยเล่น AFK สำหรับเกมบันนี่</p>
+                <a href="https://mega.nz/file/w8chwKTR#aIgjXUUH5tYE7ykwQ1e0RvWV_DbPXEuFchoUxSBbAf8" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-tachometer-alt"></i> เร่งฟาม</h3>
+                <p class="link-description">เครื่องมือช่วยเพิ่มความเร็วในการฟาร์ม</p>
+                <a href="https://mega.nz/file/ps8SkaJB#H6fpCMR7mdswFwftYnUHXCOtI1yHARABFddCnOmPodc" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-paw"></i> GOOD เลี้ยงสัตว์</h3>
+                <p class="link-description">เครื่องมือช่วยในการเลี้ยงสัตว์ในเกม</p>
+                <a href="https://mega.nz/file/h0cRiKKY#-V3-TsW053lxBMRnRfdBVebuRUgTq3bXchIy6M6rgOI" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-moon"></i> เลี้ยงสัตว์ NIGH</h3>
+                <p class="link-description">เวอร์ชันพิเศษสำหรับตอนกลางคืน</p>
+                <a href="https://mega.nz/file/lkVBySyQ#7ZOpsV7PYpnrNUdj9r8ErC5Nc5A0eSC3trn-zxFY6so" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-home"></i> ฟามไว GOODTOWN</h3>
+                <p class="link-description">เครื่องมือช่วยฟาร์มในเมือง GoodTown</p>
+                <a href="https://mega.nz/file/thV1lbBY#aOkyIZdc97NnS3uwKpNWRyCR9-HeStYuBYH4FNESo_g" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-unlock"></i> ปลดแบน TXADMIN</h3>
+                <p class="link-description">เครื่องมือช่วยปลดแบนจาก TXADMIN</p>
+                <a href="https://files.catbox.moe/kd9o0v.rar" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-gamepad"></i> ข้ามมินิเกม hug</h3>
+                <p class="link-description">ช่วยข้ามมินิเกมแบบ hug ได้อย่างรวดเร็ว</p>
+                <a href="https://mega.nz/file/lwk1WZTI#8uA7SAv3ucbObsPQ977kJmG5KebPG4aLXVokf28e9jQ" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-flag-checkered"></i> ข้ามมินิเกมสตา</h3>
+                <p class="link-description">ช่วยข้ามมินิเกมแบบสตาได้อย่างรวดเร็ว</p>
+                <a href="https://mega.nz/file/Mpt31KjZ#06ioK91NcD0XfLwFpTsPfXHXfGBYAN6xKfwL5DgFRWA" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-city"></i> Minigame Mahanokorn</h3>
+                <p class="link-description">Bypass minigame ใน Mahanokorn</p>
+                <a href="https://mega.nz/file/Y8NS0C4Q#29uKi0Obfafe5tpSV1GDzKtehvg2JcUmdJPwhmnVDmY" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-server"></i> ไฟล์ปลด BT - Server</h3>
+                <p class="link-description">เครื่องมือสำหรับปลด BT บนเซิร์ฟเวอร์</p>
+                <a href="https://mega.nz/file/sh8jUR5D#kE0Dl-wTs9vNFf6LkHfENrFANDmoXGB491_Wg5Vyid4" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-cogs"></i> Internal</h3>
+                <p class="link-description">เครื่องมือ Internal สำหรับเกม</p>
+                <a href="https://mega.nz/file/ttVy3aIJ#waivKuJ9OVG41tbB83vbDlDfK2X_95KAufB9nYr0t6E" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-crosshairs"></i> Special & Aimbot ตัวใหม่</h3>
+                <p class="link-description">Aimbot เวอร์ชันล่าสุดสำหรับเกม</p>
+                <a href="https://mega.nz/file/Ew8WSbwK#0voCSnTAFwAjNrLaMH_ZEYkdY1rJEX2vlsAbuFU8kIA" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-fish"></i> ตกปลา 1 วิ 100 ตัว</h3>
+                <p class="link-description">เครื่องมือช่วยตกปลาแบบเร็วสุด</p>
+                <a href="https://mega.nz/file/ZpMBTZrL#Dl-8ZQrdgjBaKQMVhmjcHLGvcnNSRna1ZqICZZ_xrO4" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-fishing-rod"></i> ตกปลา Warptown</h3>
+                <p class="link-description">เครื่องมือตกปลาพิเศษสำหรับ Warptown</p>
+                <a href="https://mega.nz/file/J09lEBhC#42xfd-Il8bgLfPnINO4dZFP-xKGSW_VSCOJHw0qToZo" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-fish"></i> ฟามไว ตกปลา</h3>
+                <p class="link-description">เพิ่มความเร็วในการตกปลา</p>
+                <a href="https://mega.nz/file/J09lEBhC#42xfd-Il8bgLfPnINO4dZFP-xKGSW_VSCOJHw0qToZo" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-cloud"></i> Skycity ฟามไว</h3>
+                <p class="link-description">เครื่องมือช่วยฟาร์มใน Skycity</p>
+                <a href="https://mega.nz/file/xtk0jJgT#q6rz7vVWLeWdWZLuCqIsa-ZoVBIWwSdCMqH8uk8hIQk" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-box-open"></i> โปรรวม 20 ฟังก์ชัน</h3>
+                <p class="link-description">รวมเครื่องมือกว่า 20 ฟังก์ชันในที่เดียว</p>
+                <a href="https://mega.nz/file/QoslQbwI#UoPQRfQxEc6XOfSYCS5CC5oaMW6fC_uzV2KgSHeSCyU" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-tachometer-alt"></i> ฟามไว Atena</h3>
+                <p class="link-description">เพิ่มความเร็วฟาร์มใน Atena</p>
+                <a href="https://mega.nz/file/dxtUhCoR#x7_tEclsfFwlcbtF_0gQjexMlcBtSl2cNxmpBePN-Ss" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-book"></i> ปั้มสมุด CRYBABY</h3>
+                <p class="link-description">เครื่องมือช่วยเพิ่มสมุดใน CRYBABY</p>
+                <a href="https://mega.nz/file/kksUHJDS#jH-83ry06AgHPcptUSYtriLOB_dcC9trVnXbyS0aY9U" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-running"></i> ฟามไว hug</h3>
+                <p class="link-description">เพิ่มความเร็วฟาร์มแบบ hug</p>
+                <a href="https://mega.nz/file/F5cQjAJT#B2iWmLTND1MKNt00cWE4Lv2j-HgQEon-_qnVZxyFbPM" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-home"></i> ฟามไว ktown</h3>
+                <p class="link-description">เพิ่มความเร็วฟาร์มใน ktown</p>
+                <a href="https://mega.nz/file/NgNiyT6Y#FKX8rjOXiQzhYIpRkeV9SWHVFDUH_Bw5vE6ofMnxr94" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-lock-open"></i> รันเชอร์ปลดแบน</h3>
+                <p class="link-description">เครื่องมือช่วยปลดแบนด้วยรันเชอร์</p>
+                <a href="https://mega.nz/file/1gMlwJaB#srHyAb6YG6wDa0RRJ2rVWwMImcx0EK5SwQyg3T2333U" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-surfing"></i> AFK SURF</h3>
+                <p class="link-description">เครื่องมือช่วยเล่น AFK แบบ SURF</p>
+                <a href="https://mega.nz/file/NhVF2YTb#lCSmNTVggjBi4ZbpCprhiVmLGzeUT9-RYPUb2xDNkck" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-microchip"></i> 32 bit ฟามไว</h3>
+                <p class="link-description">เวอร์ชัน 32 bit สำหรับระบบเก่า</p>
+                <a href="https://mega.nz/file/YoEhnBBI#s1ayKfxQb5qAHZB4nm5OerqjjU-3dedDw3TZSlFkm8A" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+            
+            <div class="link-card">
+                <h3 class="link-title"><i class="fas fa-bolt"></i> 32 bit โพไว</h3>
+                <p class="link-description">เพิ่มความเร็วโพสต์สำหรับระบบ 32 bit</p>
+                <a href="https://mega.nz/file/E0NyyDbS#NEzu5dqpxxFaJ7-7-8AFqAPaNvRl2Vhl97jHP4-crp0" class="download-btn" target="_blank">ดาวน์โหลด</a>
+            </div>
+        </div>
+        
+        <div class="video-section">
+            <h2 class="section-title">ตัวอย่างโปรแกรม</h2>
+            <div class="video-grid">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/pIbuRZY2LZg?si=SqWywxZZsnvYS3F2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/jnJu3bmIF-o?si=XaY9fXu6UOPxD6rA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4dOgSohhvqc?si=LFMsxe7FNX1hiWeO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/S-OpsHNf05c?si=SXHaRokYSNyIt-zu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© SEANUAL X SPOOFER | All Rights Reserved</p>
+            <p>BURATHAT POUNGPIBOON</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration
+                const duration = Math.random() * 20 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                
+                // Random color opacity
+                const opacity = Math.random() * 0.3 + 0.1;
+                particle.style.opacity = opacity;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize when page loads
+        window.addEventListener('load', createParticles);
+        
+        // Add hover effect to cards
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
